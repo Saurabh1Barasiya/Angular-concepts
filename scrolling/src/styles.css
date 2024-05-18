@@ -1,0 +1,47 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    padding: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  div {
+    margin-top: 60px; /* Navbar height adjustment */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  #study-section {
+    background-color: #f9f9f9;
+  }
+  
+  #buy-course-section {
+    background-color: #e1f5fe;
+  }
+  
+  #buy-books-section {
+    background-color: #ffe0b2;
+  }
+  
+  #enroll-section {
+    background-color: #e8f5e9;
+  }
+  
