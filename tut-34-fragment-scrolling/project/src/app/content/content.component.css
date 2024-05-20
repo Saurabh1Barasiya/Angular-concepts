@@ -1,0 +1,50 @@
+.mini-nav {
+    position: fixed;
+    top:7%;
+    width: 100%;
+    background-color: #f8f9fa; /* Background color */
+    padding: 10px 0; /* Padding */
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Distribute links evenly */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+     
+  }
+  
+  .mini-nav a {
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Text color */
+    padding: 8px 16px; /* Padding */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    font-size: 1.3vw;
+    font-family: sans-serif;
+  }
+  
+  .mini-nav a:hover {
+    background-color: #e9ecef; /* Hover background color */
+  }
+  
+
+  /* -------------------------------------------------------------------------- */
+
+  .section {
+    height: 600px; /* Set height to 600px */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f8f9fa; /* Background color */
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .section h2 {
+    margin-bottom: 20px;
+    color: #333; /* Text color */
+  }
+  
+  .section p {
+    color: #666; /* Text color */
+  }
+  
