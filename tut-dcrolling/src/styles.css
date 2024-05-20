@@ -1,0 +1,41 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* .mini-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .mini-navbar a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .mini-navbar a:hover {
+    background-color: #575757;
+  }
+  
+  .section {
+    padding: 100px 20px;
+    margin-top: 60px;
+  }
+  
+  .section h1 {
+    margin-top: 0;
+  }
+   */
