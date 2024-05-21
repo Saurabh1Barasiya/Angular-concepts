@@ -1,0 +1,26 @@
+<!-- <h2>Login</h2>
+<form (submit)="login(username.value, password.value)">
+    <label for="username">Username:</label>
+    <input type="text" id="username" #username>
+    <label for="password">Password:</label>
+    <input type="password" id="password" #password>
+    <button type="submit">Login</button>
+</form>
+<p>Don't have an account? <a routerLink="/register">Register here</a></p> -->
+
+
+<div class="container">
+    <h2>Login</h2>
+    <form (submit)="login(username.value, password.value)">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" #username class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" #password class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p>Don't have an account? <a routerLink="/register">Register here</a></p>
+</div>
