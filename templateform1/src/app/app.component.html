@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Template Driven Form</h2>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+    
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" class="form-control" required minlength="3"
+             name="name" ngModel #name="ngModel">
+      <!-- Error Messages for Name -->
+      <div *ngIf="name.invalid && name.touched" class="text-danger">
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+        <div *ngIf="name.errors?.['minlength']">Name must be at least 3 characters long.</div>
+      </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" class="form-control" required email
+             name="email" ngModel #email="ngModel">
+      <!-- Error Messages for Email -->
+      <div *ngIf="email.invalid && email.touched" class="text-danger">
+        <div *ngIf="email.errors?.['required']">Email is required.</div>
+        <div *ngIf="email.errors?.['email']">Invalid email format.</div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+  </form>
+</div>
