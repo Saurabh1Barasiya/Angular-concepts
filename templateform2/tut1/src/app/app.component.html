@@ -1,0 +1,107 @@
+<div id="container">
+  <form (ngSubmit)="submit(myForm)" #myForm="ngForm">
+
+    <div class="">
+      <label for="fistname">Enter Firstname</label>
+      <input type="text" name="fistname" id="fistname" ngModel #fistname="ngModel" required minlength="3">
+
+      <div class="" *ngIf="fistname.invalid && fistname.touched">
+        <span class="error" *ngIf="fistname.errors?.['required']">
+          <p>This field id required.</p>
+        </span>
+        <span class="error" *ngIf="fistname.errors?.['minlength']">fistname length greater then 3.</span>
+      </div>
+    </div>
+
+
+    <div class="">
+      <label for="lastname">Enter Lastname</label>
+      <input type="text" name="lastname" id="lastname" ngModel #lastname="ngModel" required minlength="3">
+      <div class="" *ngIf="lastname.invalid && lastname.touched">
+        <span class="error" *ngIf="lastname.errors?.['required']">
+          <p>This field id required.</p>
+        </span>
+        <span class="error" *ngIf="lastname.errors?.['minlength']">lastname length greater then 3.</span>
+      </div>
+    </div>
+
+
+    <div class="">
+      <label for="email">Enter email</label>
+      <input type="email" name="email" id="email" ngModel #email="ngModel" required>
+
+      <div class="" *ngIf="email.invalid && email.touched">
+          <span *ngIf="email.errors?.['required']" class="error">This field is required</span>
+      </div>
+    </div>
+
+    <div class="">
+      <label>Gender</label>
+      <div class="">
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="male" ngModel #gender="ngModel" value="male" required>
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female" ngModel #gender="ngModel" value="female">
+        <label for="others">Others</label>
+        <input type="radio" name="gender" id="others" ngModel #gender="ngModel" value="others">
+      </div>
+      <div class="" *ngIf="gender.invalid && gender.touched">
+        <span class="error" *ngIf="gender.errors?.['required']">
+          <p>This field is required.</p>
+        </span>
+      </div>
+
+    </div>
+
+
+
+    <div class="address field">
+      <label for="address">Select Address</label>
+      <select name="address" id="address" ngModel #address="ngModel" required>
+        <option value="" disabled selected>Chose option</option>
+        <option value="delhi">Delhi</option>
+        <option value="narsinghpur">Narsinghpur</option>
+        <option value="jabalpur">Jabalpur</option>
+      </select>
+
+      <div class="" *ngIf="address.invalid && address.touched">
+        <span class="error" *ngIf="address.errors?.['required']">
+          <p>This field is required.</p>
+        </span>
+      </div>
+
+    </div>
+
+<!-- 
+    <div class="">
+      <label for="terms"> -->
+         <!-- [ngModelOptions]="{standalone: true} -->
+        <!-- <input type="checkbox" name="terms" id="terms" ngModel #terms="ngModel">
+        I agree to the terms and conditions
+      </label> -->
+
+
+      <!-- <div class="" *ngIf="terms.invalid && terms.touched">
+        <span class="error" *ngIf="terms.errors?.['required']">
+          <p>You must agree to the terms and conditions.</p>
+        </span>
+      </div>
+    </div> -->
+
+
+
+    <label for="terms">
+      <input type="checkbox" name="terms" id="terms" ngModel #terms="ngModel" required>
+      I agree to the terms and conditions
+    </label>
+    <div class="" *ngIf="terms.invalid && terms.touched">
+      <span class="error" *ngIf="terms.errors?.['required']">
+        <p>You must agree to the terms and conditions.</p>
+      </span>
+    </div>
+
+
+
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+  </form>
+</div>
