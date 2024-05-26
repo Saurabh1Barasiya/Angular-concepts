@@ -1,0 +1,106 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" formControlName="firstname">
+    <div *ngIf="userForm.get('firstname')?.invalid && userForm.get('firstname')?.touched && submitted">
+      <span *ngIf="userForm.get('firstname')?.errors?.['required']">firstname is required </span>
+      <span *ngIf="userForm.get('firstname')?.errors?.['minlength']">The minimum length should be 6</span>
+    </div>
+  </div>
+
+
+  <div>
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" formControlName="lastname">
+    <div *ngIf="userForm.get('lastname')?.invalid && userForm.get('lastname')?.touched && submitted">
+      <span *ngIf="userForm.get('lastname')?.errors?.['required']">lastname is required </span>
+    </div>  
+  </div>
+
+  <div>
+    <label for="email">email</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched && submitted">
+      <span *ngIf="userForm.get('email')?.errors?.['required']">lastname is required </span>
+      <span *ngIf="userForm.get('email')?.errors?.['email']">Please enter valid email. </span>
+    </div>  
+  </div>
+
+
+
+  <div>
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+    <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.touched) && submitted">
+      <div *ngIf="userForm.get('password')?.errors?.['required']">
+        <span>Password is required.</span>
+      </div>
+      <div *ngIf="userForm.get('password')?.errors?.['minlength']">
+        <span>Password must be at least 6 characters long.</span>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword">
+    <div *ngIf="userForm.get('confirmPassword')?.invalid && (userForm.get('confirmPassword')?.touched && submitted)">
+      <span>Confirm Password is required.</span>
+    </div>
+    <div *ngIf="userForm.errors?.['notMatching'] && submitted">
+      <span>Passwords must match.</span>
+    </div>
+  </div>
+
+
+
+  <!-- group control required -->
+
+  <div formGroupName="address">
+    <!-- this parent div is manadotry -->
+    
+    <h3>Address</h3>
+
+
+    <label for="street">street</label>
+    <input type="text" id="street" formControlName="street">
+    
+
+
+    <label for="city">city</label>
+    <input type="text" id="city" formControlName="city">
+    
+
+
+    <label for="zip">zip</label>
+    <input type="text" id="zip" formControlName="zip">
+   
+
+
+
+
+    <!-- error span -->
+    <span *ngIf="userForm.get('address.street')?.invalid && userForm.get('address.street')?.touched && submitted">
+      <span *ngIf="userForm.get('address.street')?.errors?.['required']">Street is required. </span>
+    </span>
+
+
+    <span *ngIf="userForm.get('address.city')?.invalid && userForm.get('address.city')?.touched && submitted">
+      <span *ngIf="userForm.get('address.city')?.errors?.['required']">City is required.</span>
+    </span>
+
+    <span *ngIf="userForm.get('address.zip')?.invalid && userForm.get('address.zip')?.touched && submitted">
+      <span *ngIf="userForm.get('address.zip')?.errors?.['required']">zip is required.</span>
+    </span>
+    <!--  -->
+
+
+  </div>
+
+
+  <button type="submit">Submit</button>
+
+
+
+</form>
