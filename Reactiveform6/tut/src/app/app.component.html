@@ -1,0 +1,144 @@
+<!-- <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>First Name:</label>
+    <input formControlName="firstname">
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input formControlName="lastname">
+  </div>
+  <div>
+    <label>Email:</label>
+    <input formControlName="email">
+  </div>
+  <div>
+    <label>Password:</label>
+    <input type="password" formControlName="password">
+  </div>
+  <div>
+    <label>Confirm Password:</label>
+    <input type="password" formControlName="confirmPassword">
+  </div>
+
+  <div formGroupName="address">
+    <div>
+      <label>Street:</label>
+      <input formControlName="street">
+    </div>
+    <div>
+      <label>City:</label>
+      <input formControlName="city">
+    </div>
+    <div>
+      <label>Zip:</label>
+      <input formControlName="zip">
+    </div>
+  </div>
+
+  <div formArrayName="skills">
+    <div *ngFor="let skill of skillsDetils.controls; let i = index">
+      <input [formControlName]="i">
+      <button type="button" (click)="removeSkill(i)">Remove Skill</button>
+    </div>
+    <button type="button" (click)="addSkill()">Add Skill</button>
+  </div>
+
+  <div formArrayName="experience">
+    <div *ngFor="let exp of experienceDetails.controls; let i = index" [formGroupName]="i">
+      <div>
+        <label>Company:</label>
+        <input formControlName="company">
+      </div>
+      <div>
+        <label>Role:</label>
+        <input formControlName="role">
+      </div>
+      <div>
+        <label>Duration:</label>
+        <input formControlName="duration">
+      </div>
+      <button type="button" (click)="removeExperience(i)">Remove Experience</button>
+    </div>
+    <button type="button" (click)="addExperience()">Add Experience</button>
+  </div>
+
+  <button type="submit">Submit</button>
+</form> -->
+
+
+
+
+
+
+
+
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="form-container">
+  <div class="form-group">
+    <label>First Name:</label>
+    <input formControlName="firstname" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Last Name:</label>
+    <input formControlName="lastname" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Email:</label>
+    <input formControlName="email" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input type="password" formControlName="password" class="form-control">
+  </div>
+  <div class="form-group">
+    <label>Confirm Password:</label>
+    <input type="password" formControlName="confirmPassword" class="form-control">
+  </div>
+
+  <div formGroupName="address" class="address-group">
+    <h3>Address</h3>
+    <div class="form-group">
+      <label>Street:</label>
+      <input formControlName="street" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>City:</label>
+      <input formControlName="city" class="form-control">
+    </div>
+    <div class="form-group">
+      <label>Zip:</label>
+      <input formControlName="zip" class="form-control">
+    </div>
+  </div>
+
+  <div formArrayName="skills" class="skills-group">
+    <h3>Skills</h3>
+    <div *ngFor="let skill of skillsDetils.controls; let i = index" class="form-group skill-item">
+      <input [formControlName]="i" class="form-control">
+      <button type="button" (click)="removeSkill(i)" class="btn btn-danger">Remove Skill</button>
+    </div>
+    <button type="button" (click)="addSkill()" class="btn btn-primary">Add Skill</button>
+  </div>
+
+  <div formArrayName="experience" class="experience-group">
+    <h3>Experience</h3>
+    <div *ngFor="let exp of experienceDetails.controls; let i = index" [formGroupName]="i" class="form-group experience-item">
+      <div class="form-group">
+        <label>Company:</label>
+        <input formControlName="company" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Role:</label>
+        <input formControlName="role" class="form-control">
+      </div>
+      <div class="form-group">
+        <label>Duration:</label>
+        <input formControlName="duration" class="form-control">
+      </div>
+      <button type="button" (click)="removeExperience(i)" class="btn btn-danger">Remove Experience</button>
+    </div>
+    <button type="button" (click)="addExperience()" class="btn btn-primary">Add Experience</button>
+  </div>
+
+  <button type="submit" class="btn btn-submit">Submit</button>
+</form>
