@@ -124,15 +124,15 @@
     <h3>Experience</h3>
     <div *ngFor="let exp of experienceDetails.controls; let i = index" [formGroupName]="i" class="form-group experience-item">
       <div class="form-group">
-        <label>Company:</label>
+        <label>Company {{i+1}}:</label>
         <input formControlName="company" class="form-control">
       </div>
       <div class="form-group">
-        <label>Role:</label>
+        <label>Role {{i+1}}:</label>
         <input formControlName="role" class="form-control">
       </div>
       <div class="form-group">
-        <label>Duration:</label>
+        <label>Duration {{i+1}}:</label>
         <input formControlName="duration" class="form-control">
       </div>
       <button type="button" (click)="removeExperience(i)" class="btn btn-danger">Remove Experience</button>
