@@ -1,0 +1,38 @@
+<form [formGroup]="userForm" (ngSubmit)="submit()">
+  <div class="">
+    <label for="firstname">firstname</label>
+    <input type="text" name="firstname" id="firstname" formControlName="firstname">
+    
+    <div class="" *ngIf="userForm.get('firstname')?.invalid && userForm.get('firstname')?.touched">
+      <span class="error" *ngIf="userForm.get('firstname')?.errors?.['required']">First name is Required.</span>
+    </div>
+  </div>
+
+  <div class="">
+    <label for="email">email</label>
+    <input type="email" name="email" id="email" formControlName="email">
+    
+    <div class="" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+      <span class="error" *ngIf="userForm.get('email')?.errors?.['required']">email is Required.</span>
+      <span class="error" *ngIf="userForm.get('email')?.errors?.['email']">Enter valid email.</span>
+    </div>
+  </div>
+
+  <div class="" formArrayName="skills">
+    <h3>Skills</h3>
+    
+    <div class="" *ngFor="let skill of get_skills.controls; let i = index" [formGroupName]="i">
+      <label for="skill-{{i}}">skill{{i+1}}</label>
+      <input type="text" id="skill-{{i}}" [formControlName]="i">
+      <button type="button" (click)="remove(i)">Remove</button>
+      <div class="" *ngIf="skill.invalid && skill.touched">
+        <span class="error" *ngIf="skill.errors?.['required']">Skill is Required.</span>
+      </div>
+    </div>
+    <button type="button" (click)="addSkill()">Add Skill</button>
+  </div>
+
+  <input type="submit">
+
+
+</form>
