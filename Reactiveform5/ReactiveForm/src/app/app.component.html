@@ -1,0 +1,98 @@
+<form [formGroup]="userForm"  (ngSubmit)="onSubmit()" class="user-form">
+
+  <div class="form-group">
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" formControlName="firstname">
+    <div *ngIf="userForm.get('firstname')?.invalid && (userForm.get('firstname')?.touched || submitted)" class="error">
+      <span *ngIf="userForm.get('firstname')?.errors?.['required']">First name is required.</span>
+      <span *ngIf="userForm.get('firstname')?.errors?.['minlength']">The minimum length should be 5.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" formControlName="lastname">
+    <div *ngIf="userForm.get('lastname')?.invalid && (userForm.get('lastname')?.touched || submitted)" class="error">
+      <span *ngIf="userForm.get('lastname')?.errors?.['required']">Last name is required.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" id="email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.touched || submitted)" class="error">
+      <span *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</span>
+      <span *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" formControlName="password">
+    <div *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.touched || submitted)" class="error">
+      <span *ngIf="userForm.get('password')?.errors?.['required']">Password is required.</span>
+      <span *ngIf="userForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input type="password" id="confirmPassword" formControlName="confirmPassword">
+    <div *ngIf="userForm.get('confirmPassword')?.invalid && (userForm.get('confirmPassword')?.touched || submitted)" class="error">
+      <span>Confirm Password is required.</span>
+    </div>
+    <div *ngIf="userForm.errors?.['notMatching'] && submitted" class="error">
+      <span>Passwords must match.</span>
+    </div>
+  </div>
+
+  <div formGroupName="address" class="address-group">
+    <h3>Address</h3>
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" id="street" formControlName="street">
+      <div *ngIf="userForm.get('address.street')?.invalid && (userForm.get('address.street')?.touched || submitted)" class="error">
+        <span *ngIf="userForm.get('address.street')?.errors?.['required']">Street is required.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" formControlName="city">
+      <div *ngIf="userForm.get('address.city')?.invalid && (userForm.get('address.city')?.touched || submitted)" class="error">
+        <span *ngIf="userForm.get('address.city')?.errors?.['required']">City is required.</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="zip">Zip Code</label>
+      <input type="text" id="zip" formControlName="zip">
+      <div *ngIf="userForm.get('address.zip')?.invalid && (userForm.get('address.zip')?.touched || submitted)" class="error">
+        <span *ngIf="userForm.get('address.zip')?.errors?.['required']">Zip Code is required.</span>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div formArrayName="skills" class="skills-group">
+    <h3>Skills</h3>
+    <div *ngFor="let skill of skillsDetils.controls; let i = index" [formGroupName]="i" class="form-group">
+      <label for="skill-{{i}}">Skill {{i + 1}}</label>
+      <input type="text" id="skill-{{i}}" [formControlName]="i">
+      <button type="button" (click)="removeSkill(i)">Remove</button>
+      <div *ngIf="skill.invalid && (skill.touched || submitted)" class="error">
+        <span *ngIf="skill.errors?.['required']">Skill is required.</span>
+      </div>
+    </div>
+    <button type="button" (click)="addSkill()">Add Skill</button>
+  </div>
+
+
+
+
+
+
+  <button type="submit">Submit</button>
+</form>
