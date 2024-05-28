@@ -1,0 +1,30 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>First Name:</label>
+    <input formControlName="firstname">
+  </div>
+  <div>
+    <label>Last Name:</label>
+    <input formControlName="lastname">
+  </div>
+  <div>
+    <label>Email:</label>
+    <input formControlName="email">
+  </div>
+  <div formGroupName="address">
+    <div>
+      <label>Street:</label>
+      <input formControlName="street">
+    </div>
+    <div>
+      <label>City:</label>
+      <input formControlName="city">
+    </div>
+    <div>
+      <label>Zip:</label>
+      <input formControlName="zip">
+    </div>
+  </div>
+  <button type="submit">Submit</button>
+</form>
+<button (click)="updateProfile()">Update Profile</button>
