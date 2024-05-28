@@ -1,0 +1,12 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>Password:</label>
+    <div class="password-container">
+      <input [type]="passwordFieldType" formControlName="password" class="form-control">
+      <button type="button" (click)="togglePasswordVisibility()" class="eye-button">
+        <i [ngClass]="passwordFieldType === 'password' ? 'fas fa-eye' : 'fas fa-eye-slash'"></i>
+      </button>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-submit">Submit</button>
+</form>
