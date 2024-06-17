@@ -1,0 +1,15 @@
+<!-- <div>
+  <h1>Pure Pipe Example</h1>
+  <input [(ngModel)]="searchText" placeholder="Search text">
+  <ul>
+    <li *ngFor="let item of items | filterPure: searchText">{{ item }}</li>
+  </ul>
+</div> -->
+
+<div>
+  <h1>Impure Pipe Example</h1>
+  <input [(ngModel)]="searchText" placeholder="Search text">
+  <ul>
+    <li *ngFor="let item of items | filterImpure: searchText">{{ item }}</li>
+  </ul>
+</div>

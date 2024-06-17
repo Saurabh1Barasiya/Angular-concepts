@@ -1,0 +1,20 @@
+
+<!-- 
+<div>
+  <h1>Pure Pipe Example</h1>
+  <button (click)="addItem()">Add Apple</button>
+  <ul>
+    <li *ngFor="let item of items">{{ item | capitalizePure }}</li>
+  </ul>
+</div> -->
+
+<button>click</button>
+
+<div>
+  <h1>Impure Pipe Example</h1>
+  <button (click)="addItem()">Add Apple</button>
+  <ul>
+    <li *ngFor="let item of items"> <button>click me</button> {{ item | capitalizeImpure }}</li>
+  </ul>
+</div>
+
